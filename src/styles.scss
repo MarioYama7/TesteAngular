@@ -1,0 +1,17 @@
+@import '@angular/material/theming';
+@include mat-core();
+
+/*Aqui é onde se faz a definição das cores e temas para todo o projeto*/
+
+$custom-app-primary: mat-palette($mat-blue, A700);
+$custom-app-secundary: mat-palette($mat-indigo, A200, A400, 700);
+$custom-app-warn: mat-palette($mat-red);
+
+/*Cores do Material Design, lá tem uma tabela*/
+
+$custom-theme: mat-light-theme($custom-app-primary, $custom-app-secundary, $custom-app-warn);
+
+@include angular-material-theme($custom-theme);
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

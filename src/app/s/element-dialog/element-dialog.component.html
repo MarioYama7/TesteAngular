@@ -1,0 +1,35 @@
+      <h1 *ngIf="!isChange" mat-dialog-title>Incluir Curso</h1> <!--Se não é para mudar, se cria-->
+      <h1 *ngIf="isChange" mat-dialog-title>Editar</h1> <!--Se é para mudar, se edita-->
+
+      <!--Campos que estão dentro para incluir ou alterar-->
+      <div>
+        <mat-form-field appearance="fill" class="espaco">
+          <mat-label >Código</mat-label>
+          <input matInput [(ngModel)]="data.position" placeholder="Código do Curso" >
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="espaco">
+          <mat-label>Curso</mat-label>
+          <input matInput [(ngModel)]="data.course" placeholder="Nome do Curso">
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="espaco">
+          <mat-label>Instrutor</mat-label>
+          <input matInput [(ngModel)]="data.instructor" placeholder="Nome do Instrutor">
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="espaco">
+          <mat-label>Local</mat-label>
+          <input matInput [(ngModel)]="data.localization" placeholder="Nome do Local">
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="espaco">
+          <mat-label>Carga Horária</mat-label>
+          <input matInput [(ngModel)]="data.load" placeholder="Carga horária">
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="espaco">
+          <mat-label>Data de Início</mat-label>
+          <input matInput [(ngModel)]="data.date" placeholder="dd/mm/aaaa">
+        </mat-form-field>
+      </div>
+    <div mat-dialog-actions>
+      <button mat-button (click)="onCancel()" color="warn">Cancelar</button>
+      <button mat-button *ngIf="!isChange"[mat-dialog-close]="data" cdkFocusInitial color="primary">Criar</button>
+      <button mat-button  *ngIf="isChange" [mat-dialog-close]="data" cdkFocusInitial >Editar</button>
+    </div>
